@@ -18,6 +18,8 @@ let share = undefined;
 
 if (extensions.text.includes(fileExtension)) {
   share = hosts.gist;
+} else if (extensions.imgurImage.includes(fileExtension)) {
+  share = hosts.imgur;
 }
 
 share(fileName, fileData);
