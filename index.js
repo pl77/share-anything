@@ -14,7 +14,7 @@ let shareFunction = undefined;
 
 if (mimeType.startsWith('image')) {
   shareFunction = require('./lib/image').image;
-} else if (mimeType === 'text/plain') {
+} else if (fileName.endsWith('txt')) {
   shareFunction = require('./lib/plaintext').plaintext;
 }
 
