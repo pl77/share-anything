@@ -1,0 +1,31 @@
+{
+  "name": "imgur-share",
+  "version": "0.0.1",
+  "description": "Upload images to imgur with one CLI command",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tallpants/imgur-share.git"
+  },
+  "keywords": [
+    "imgur",
+    "upload",
+    "share",
+    "image",
+    "CLI",
+    "command",
+    "line"
+  ],
+  "author": "Adithya Reddy <adithyakreddy6@gmail.com>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/tallpants/imgur-share/issues"
+  },
+  "homepage": "https://github.com/tallpants/imgur-share#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
