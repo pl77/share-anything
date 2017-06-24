@@ -14,10 +14,10 @@ const fileName = path.basename(filePath);
 const fileExtension = fileName.split('.')[1];
 const fileData = fs.readFileSync(filePath);
 
-let shareFunction = undefined;
+let share = undefined;
 
-if (extensions.sources.includes(fileExtension)) {
-  shareFunction = hosts.gist;
+if (extensions.text.includes(fileExtension)) {
+  share = hosts.gist;
 }
 
-shareFunction(fileName, fileData);
+share(fileName, fileData);
