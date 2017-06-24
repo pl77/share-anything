@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const mime = require('mime');
+const mime = require('mime-types');
 
 if (!process.argv[2]) {
   console.log('No file specified');
