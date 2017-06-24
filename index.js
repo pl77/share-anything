@@ -16,9 +16,9 @@ const fileData = fs.readFileSync(filePath);
 
 let share = undefined;
 
-if (extensions.text.includes(fileExtension)) {
+if (extensions.gist.includes(fileExtension)) {
   share = hosts.gist;
-} else if (extensions.imgurImage.includes(fileExtension)) {
+} else if (extensions.imgur.includes(fileExtension)) {
   share = hosts.imgur;
 }
 
