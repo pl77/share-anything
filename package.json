@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/tallpants/imgur-share#readme",
   "dependencies": {
+    "mime": "^1.3.6",
     "request": "^2.81.0"
   }
 }
