@@ -14,7 +14,6 @@ const hosts = require('./lib/hosts');
 const filePath = process.argv[2];
 const fileName = path.basename(filePath);
 const fileExtension = fileName.split('.')[1];
-const fileData = fs.readFileSync(filePath);
 
 let share = hosts[argv.h];
 
@@ -26,4 +25,4 @@ if (!share) {
   }
 }
 
-share(fileName, fileData);
+share(fileName, filePath);
