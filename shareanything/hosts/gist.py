@@ -1,14 +1,16 @@
 from requests import post
 
+url = "https://api.github.com/gists"
 
-def upload(filename, filepath):
-    with open(filepath, "r") as f:
+
+def upload(file_name, file_path):
+    with open(file_path, "r") as f:
         file_contents = f.read()
 
     payload = {
         "public": True,
         "files": {
-            filename: {
+            file_name: {
                 "content": file_contents
             }
         }
@@ -18,13 +20,9 @@ def upload(filename, filepath):
         "User-Agent": "tallpants"
     }
 
-    response = post("https://api.github.com/gists",
-                    headers=headers, json=payload)
+    response = post(url, headers=headers, json=payload)
     try:
         return response.json()["html_url"]
     except Exception as e:
         print("Upload to Gist failed")
         print(e)
-
-
-print(upload('test.py', './test.py'))
