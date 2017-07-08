@@ -25,7 +25,6 @@ def upload(filename, filepath):
     except Exception as e:
         print("Upload to Gist failed")
         print(e)
-        return None
 
 
 print(upload('test.py', './test.py'))
