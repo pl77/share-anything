@@ -11,11 +11,11 @@ parser.add_argument("file", nargs=1, help="path to the file to upload")
 parser.add_argument("--host", help="explicitly specify the host to use")
 args = parser.parse_args()
 
-if len(args.files) == 0:
+if not args.file[0]:
     print("No file specified.")
     exit(1)
 
-file_path = args.files[0]
+file_path = args.file[0]
 
 try:
     size_mb = ceil(getsize(file_path) / 1000000)
@@ -32,13 +32,21 @@ file_extension = file_name.split(".")[-1]
 
 from . import hosts, extensions
 
-host = args.host
+host = None
+
+if args.host:
+    if args.host == "imgur":
+        host  = hosts.imgur
+    elif args.host == "gist":
+        host = hosts.gist
+    else:
+        print("Invalid host specified. Falling back to auto-detect")
 
 if not host:
     if size_mb <= 10 and file_extension in extensions.imgur:
         host = hosts.imgur
     elif size_mb <= 1 and file_extension in extensions.gist:
         host = hosts.gist
-    # else anonfile
+
 
 host.upload(file_name, file_path)
