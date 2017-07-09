@@ -1,4 +1,4 @@
-from requests import post
+from requests import post as __post
 
 url = "https://api.github.com/gists"
 
@@ -20,9 +20,10 @@ def upload(file_name, file_path):
         "User-Agent": "tallpants"
     }
 
-    response = post(url, headers=headers, json=payload)
+    response = __post(url, headers=headers, json=payload)
+
     try:
-        return response.json()["html_url"]
+        print(response.json()["html_url"])
     except Exception as e:
-        print("Upload to Gist failed")
+        print("Upload to gist failed.")
         print(e)
