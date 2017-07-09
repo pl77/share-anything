@@ -48,5 +48,4 @@ if not host:
     elif size_mb <= 1 and file_extension in extensions.gist:
         host = hosts.gist
 
-
 host.upload(file_name, file_path)
