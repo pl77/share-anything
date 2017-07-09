@@ -36,7 +36,7 @@ host = None
 
 if args.host:
     if args.host == "imgur":
-        host  = hosts.imgur
+        host = hosts.imgur
     elif args.host == "gist":
         host = hosts.gist
     else:
