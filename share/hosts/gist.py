@@ -27,3 +27,4 @@ def upload(file_name, file_path):
     except Exception as e:
         print("Upload to gist failed.")
         print(e)
+        exit(1)
