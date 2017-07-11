@@ -1,1 +1,1 @@
-from . import gist, imgur
+from . import gist, imgur, anonfile

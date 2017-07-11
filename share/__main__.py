@@ -39,6 +39,8 @@ if args.host:
         host = hosts.imgur
     elif args.host == "gist":
         host = hosts.gist
+    elif args.host == "anonfile":
+        host = hosts.anonfile
     else:
         print("Invalid host specified. Falling back to auto-detect")
 
@@ -47,5 +49,7 @@ if not host:
         host = hosts.imgur
     elif size_mb <= 1 and file_extension in extensions.gist:
         host = hosts.gist
+    else:
+        host = hosts.anonfile
 
 host.upload(file_name, file_path)

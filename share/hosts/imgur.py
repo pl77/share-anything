@@ -4,7 +4,7 @@ __client_id = "9c65f969001905d"
 __url = "https://api.imgur.com/3/image"
 
 
-def upload(_, file_path):
+def upload(file_name, file_path):
     file = {
         "image": open(file_path, "rb")
     }
