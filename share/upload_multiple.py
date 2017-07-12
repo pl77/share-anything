@@ -51,8 +51,8 @@ def upload_multiple(file_path_list, hostname):
                 elif all((file.size <= 1 and file.extension in extensions.gist) for file in files):
                     host = hosts.gist
                 else:
-                    print("You can upload either all text files or all image files. Try zipping these " +
-                          "files up and uploading the zip file.")
+                    print("You can upload either all text files or all image files. " +
+                          "Try zipping these files up and uploading the zip file.")
                     exit(1)
 
     host.upload_multiple(files)
