@@ -1,12 +1,12 @@
 from os.path import basename, getsize
-from math import ceil as ceil
+from math import ceil
 
 
 def upload_single(file_path, hostname):
     try:
         size_mb = ceil(getsize(file_path) / 1000000)
     except OSError as e:
-        print("The file does not exist or is inaccessible")
+        print("The file does not exist or is inaccessible.")
         exit(1)
 
     if size_mb > 1024:
@@ -15,14 +15,9 @@ def upload_single(file_path, hostname):
 
     file_name = basename(file_path)
 
-    file_extension = None
+    file_extension = ""
     if len(file_name.split(".")) >= 2:
         file_extension = file_name.split(".")[-1]
-    else:
-        if not file_name.startswith("."):
-            file_extension = ""
-        else:
-            file_extension = file_name[1:]
 
     from . import hosts, extensions
 
