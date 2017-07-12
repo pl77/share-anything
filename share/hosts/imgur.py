@@ -10,7 +10,7 @@ def upload(file_name, file_path):
     }
 
     headers = {
-        "authorization": "Client-ID {0}".format(__client_id)
+        "authorization": "Client-ID {0}".format(client_id)
     }
 
     response = post(url, headers=headers, files=file)
