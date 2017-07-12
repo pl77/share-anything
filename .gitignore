@@ -4,3 +4,6 @@ scratch.py
 .idea/
 **/__pycache__/
 **.pyc
+
+# Sublime text
+*.sublime-*
