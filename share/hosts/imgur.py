@@ -20,3 +20,7 @@ def upload(file_name, file_path):
         print("Upload to imgur failed")
         print(e)
         exit(1)
+
+
+def upload_multiple(files):
+    print(files)
