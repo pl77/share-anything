@@ -1,7 +1,7 @@
-from requests import post as __post
+from requests import post
 
-__client_id = "9c65f969001905d"
-__url = "https://api.imgur.com/3/image"
+client_id = "9c65f969001905d"
+url = "https://api.imgur.com/3/image"
 
 
 def upload(file_name, file_path):
@@ -13,7 +13,7 @@ def upload(file_name, file_path):
         "authorization": "Client-ID {0}".format(__client_id)
     }
 
-    response = __post(__url, headers=headers, files=file)
+    response = post(url, headers=headers, files=file)
     try:
         print(response.json()["data"]["link"])
     except Exception as e:

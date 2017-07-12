@@ -1,6 +1,6 @@
-from requests import post as __post
+from requests import post
 
-__url = "https://api.github.com/gists"
+url = "https://api.github.com/gists"
 
 
 def upload(file_name, file_path):
@@ -20,7 +20,7 @@ def upload(file_name, file_path):
         "User-Agent": "tallpants"
     }
 
-    response = __post(__url, headers=headers, json=payload)
+    response = post(url, headers=headers, json=payload)
 
     try:
         print(response.json()["html_url"])
