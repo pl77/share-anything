@@ -16,3 +16,7 @@
 * Split up the common functionality between `upload_single` and `upload_multiple` into helper functions.
 
 * Move all the imports to the top of the files.
+
+* Just pass path to host and let host figure out the filename if it needs to.
+
+* Simplify imgur album upload
