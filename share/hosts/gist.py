@@ -3,27 +3,29 @@ from requests import post
 
 __url = "https://api.github.com/gists"
 
+__headers = {
+    "User-Agent": "tallpants"
+}
 
-def upload(file_path):
+__payload = {
+    "public": True,
+    "files": {}
+}
+
+
+def __add_file_to_payload(file_path):
     with open(file_path, "r") as f:
         file_contents = f.read()
 
     file_name = basename(file_path)
 
-    payload = {
-        "public": True,
-        "files": {
-            file_name: {
-                "content": file_contents
-            }
-        }
+    __payload["files"][file_name] = {
+        "content": file_contents
     }
 
-    headers = {
-        "User-Agent": "tallpants"
-    }
 
-    response = post(__url, headers=headers, json=payload)
+def __post_payload():
+    response = post(__url, headers=__headers, json=__payload)
 
     try:
         print(response.json()["html_url"])
@@ -33,5 +35,13 @@ def upload(file_path):
         exit(1)
 
 
+def upload(file_path):
+    __add_file_to_payload(file_path)
+    __post_payload()
+
+
 def upload_multiple(files):
-    print(files)
+    for file in files:
+        __add_file_to_payload(file.path)
+
+    __post_payload()

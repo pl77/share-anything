@@ -29,13 +29,13 @@ def upload(file_path):
 
 
 def upload_multiple(files):
+    url = "https://api.imgur.com/3/album"
+
     deletehashes = []
 
     for file in files:
         upload_data = __upload_single(file.path)
         deletehashes.append(upload_data["deletehash"])
-
-    url = "https://api.imgur.com/3/album"
 
     payload = {
         "deletehashes[]": deletehashes,
@@ -50,4 +50,3 @@ def upload_multiple(files):
         print("Creating album failed.")
         print(e)
         exit(1)
-
