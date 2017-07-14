@@ -1,34 +1,16 @@
-from os.path import getsize, splitext
-from math import ceil
-
-from . import hosts, extensions
+from . import helpers, hosts, extensions
 
 
 def upload_single(file_path, hostname):
-    try:
-        size_mb = ceil(getsize(file_path) / 1000000)
-    except OSError:
-        print("The file does not exist or is inaccessible.")
-        exit(1)
+
+    size_mb = helpers.size_mb(file_path)
 
     if size_mb > 1024:
         print("File is too large (1GB limit)")
         exit(1)
 
-    file_extension = splitext(file_path)[1][1:]
-
-    host = None
-
-    if hostname:
-        if hostname == "imgur":
-            host = hosts.imgur
-        elif hostname == "gist":
-            host = hosts.gist
-        elif hostname == "anonfile":
-            host = hosts.anonfile
-        else:
-            print("Invalid host specified.")
-            exit(1)
+    file_extension = helpers.extension(file_path)
+    host = helpers.parse_host(hostname)
 
     if not host:
         if not file_extension:

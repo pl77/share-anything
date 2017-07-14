@@ -15,3 +15,7 @@ def upload(file_path):
         print("Upload to anonfile failed")
         print(e)
         exit(1)
+
+
+def upload_multile(files):
+    print(files)

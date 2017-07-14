@@ -1,8 +1,6 @@
-from os.path import getsize, splitext
-from math import ceil
 from collections import namedtuple
 
-from . import hosts, extensions
+from . import helpers, hosts, extensions
 
 
 def upload_multiple(file_path_list, hostname):
@@ -10,31 +8,14 @@ def upload_multiple(file_path_list, hostname):
     files = []
 
     for file_path in file_path_list:
-        try:
-            size_mb = ceil(getsize(file_path) / 1000000)
-        except OSError:
-            print("{} does not exist or is inaccessible.".format(file_path))
-            exit(1)
-
-        file_extension = splitext(file_path)[1][1:]
+        size_mb = helpers.size_mb(file_path)
+        file_extension = helpers.extension(file_path)
 
         files.append(FileInfo(extension=file_extension,
                               size=size_mb,
                               path=file_path))
 
-        host = None
-
-        if hostname:
-            if hostname == "imgur":
-                host = hosts.imgur
-            elif hostname == "gist":
-                host = hosts.gist
-            elif hostname == "anonfile":
-                print("Multiple uploads to a file host aren't supported yet.")
-                exit(1)
-            else:
-                print("Invalid host specified")
-                exit(1)
+        host = helpers.parse_host(hostname)
 
         if not host:
             if not file_extension:

@@ -8,5 +8,3 @@
   - If all images then imgur album
   - If all < 1MB text files then gist collection.
   - Else file host zip (< 1GB zip file size limit?)
-
-* Split up the common functionality between `upload_single` and `upload_multiple` into helper functions.
