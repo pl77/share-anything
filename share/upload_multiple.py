@@ -33,7 +33,8 @@ def upload_multiple(file_path_list, hostname):
                 print("Multiple uploads to a file host aren't supported yet.")
                 exit(1)
             else:
-                print("Invalid host specified. Falling back to auto-detect")
+                print("Invalid host specified")
+                exit(1)
 
         if not host:
             if not file_extension:

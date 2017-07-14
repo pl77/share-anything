@@ -9,8 +9,6 @@
   - If all < 1MB text files then gist collection.
   - Else file host zip (< 1GB zip file size limit?)
 
-* If the user enters an invalid host, just tell him it's invalid and stop.
-
 * Split up the common functionality between `upload_single` and `upload_multiple` into helper functions.
 
 * Simplify imgur album upload

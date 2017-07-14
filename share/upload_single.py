@@ -27,7 +27,8 @@ def upload_single(file_path, hostname):
         elif hostname == "anonfile":
             host = hosts.anonfile
         else:
-            print("Invalid host specified. Falling back to auto-detect")
+            print("Invalid host specified.")
+            exit(1)
 
     if not host:
         if not file_extension:
