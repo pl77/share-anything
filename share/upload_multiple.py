@@ -2,6 +2,8 @@ from os.path import getsize, splitext
 from math import ceil
 from collections import namedtuple
 
+from . import hosts, extensions
+
 
 def upload_multiple(file_path_list, hostname):
     FileInfo = namedtuple("FileInfo", "name extension size path")
@@ -19,8 +21,6 @@ def upload_multiple(file_path_list, hostname):
         files.append(FileInfo(extension=file_extension,
                               size=size_mb,
                               path=file_path))
-
-        from . import hosts, extensions
 
         host = None
 

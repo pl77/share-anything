@@ -1,6 +1,8 @@
 from os.path import getsize, splitext
 from math import ceil
 
+from . import hosts, extensions
+
 
 def upload_single(file_path, hostname):
     try:
@@ -14,8 +16,6 @@ def upload_single(file_path, hostname):
         exit(1)
 
     file_extension = splitext(file_path)[1][1:]
-
-    from . import hosts, extensions
 
     host = None
 

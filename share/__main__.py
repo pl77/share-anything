@@ -1,5 +1,8 @@
 from argparse import ArgumentParser
 
+from .upload_single import upload_single
+from .upload_multiple import upload_multiple
+
 
 parser = ArgumentParser(
     description="Upload a file to a sharing service and print a URL to it",
@@ -15,8 +18,6 @@ if len(args.file) == 0:
     print("No file(s) specified.")
     exit(1)
 elif len(args.file) == 1:
-    from .upload_single import upload_single
     upload_single(args.file[0], args.host)
 else:
-    from .upload_multiple import upload_multiple
     upload_multiple(args.file, args.host)
