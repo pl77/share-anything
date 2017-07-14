@@ -1,19 +1,17 @@
-from os.path import basename, getsize, splitext
+from os.path import getsize, splitext
 from math import ceil
 
 
 def upload_single(file_path, hostname):
     try:
         size_mb = ceil(getsize(file_path) / 1000000)
-    except OSError as e:
+    except OSError:
         print("The file does not exist or is inaccessible.")
         exit(1)
 
     if size_mb > 1024:
         print("File is too large (1GB limit)")
         exit(1)
-
-    file_name = basename(file_path)
 
     file_extension = splitext(file_path)[1][1:]
 
@@ -41,4 +39,4 @@ def upload_single(file_path, hostname):
         else:
             host = hosts.anonfile
 
-    host.upload(file_name, file_path)
+    host.upload(file_path)

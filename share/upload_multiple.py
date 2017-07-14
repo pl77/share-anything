@@ -1,4 +1,4 @@
-from os.path import basename, getsize, splitext
+from os.path import getsize, splitext
 from math import ceil
 from collections import namedtuple
 
@@ -10,16 +10,13 @@ def upload_multiple(file_path_list, hostname):
     for file_path in file_path_list:
         try:
             size_mb = ceil(getsize(file_path) / 1000000)
-        except OSError as e:
+        except OSError:
             print("{} does not exist or is inaccessible.".format(file_path))
             exit(1)
 
-        file_name = basename(file_path)
-
         file_extension = splitext(file_path)[1][1:]
 
-        files.append(FileInfo(name=file_name,
-                              extension=file_extension,
+        files.append(FileInfo(extension=file_extension,
                               size=size_mb,
                               path=file_path))
 

@@ -3,7 +3,7 @@ from requests import post
 url = "https://anonfile.com/api/upload"
 
 
-def upload(file_name, file_path):
+def upload(file_path):
     payload = {
         "file": open(file_path, "rb")
     }

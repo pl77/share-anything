@@ -1,11 +1,14 @@
+from os.path import basename
 from requests import post
 
 url = "https://api.github.com/gists"
 
 
-def upload(file_name, file_path):
+def upload(file_path):
     with open(file_path, "r") as f:
         file_contents = f.read()
+
+    file_name = basename(file_path)
 
     payload = {
         "public": True,
