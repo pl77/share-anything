@@ -1,4 +1,4 @@
-from os.path import basename, getsize
+from os.path import basename, getsize, splitext
 from math import ceil
 
 
@@ -15,9 +15,7 @@ def upload_single(file_path, hostname):
 
     file_name = basename(file_path)
 
-    file_extension = ""
-    if len(file_name.split(".")) >= 2:
-        file_extension = file_name.split(".")[-1]
+    file_extension = splitext(file_path)[1][1:]
 
     from . import hosts, extensions
 
