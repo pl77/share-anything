@@ -6,7 +6,7 @@ from . import hosts, extensions
 
 
 def upload_multiple(file_path_list, hostname):
-    FileInfo = namedtuple("FileInfo", "name extension size path")
+    FileInfo = namedtuple("FileInfo", "extension size path")
     files = []
 
     for file_path in file_path_list:
