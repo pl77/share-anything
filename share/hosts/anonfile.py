@@ -1,6 +1,6 @@
 from requests import post
 
-url = "https://anonfile.com/api/upload"
+__url = "https://anonfile.com/api/upload"
 
 
 def upload(file_path):
@@ -8,7 +8,7 @@ def upload(file_path):
         "file": open(file_path, "rb")
     }
 
-    response = post(url, files=payload)
+    response = post(__url, files=payload)
     try:
         print(response.json()["data"]["file"]["url"]["short"])
     except Exception as e:

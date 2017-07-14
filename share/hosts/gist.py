@@ -1,7 +1,7 @@
 from os.path import basename
 from requests import post
 
-url = "https://api.github.com/gists"
+__url = "https://api.github.com/gists"
 
 
 def upload(file_path):
@@ -23,7 +23,7 @@ def upload(file_path):
         "User-Agent": "tallpants"
     }
 
-    response = post(url, headers=headers, json=payload)
+    response = post(__url, headers=headers, json=payload)
 
     try:
         print(response.json()["html_url"])
