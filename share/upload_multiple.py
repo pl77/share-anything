@@ -19,9 +19,7 @@ def upload_multiple(file_path_list, hostname):
 
         if not host:
             if not file_extension:
-                print("Can't upload these. Try zipping them up and " +
-                      "uploading the zip file.")
-                exit(1)
+                host = hosts.anonfile
             else:
                 if all(file.size <= 10 and file.extension in extensions.imgur
                        for file in files):
@@ -30,7 +28,6 @@ def upload_multiple(file_path_list, hostname):
                          for file in files):
                     host = hosts.gist
                 else:
-                    print("This isn't implemented yet.")
-                    exit(1)
+                    host = hosts.anonfile
 
     host.upload_multiple(files)
