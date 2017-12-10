@@ -1,6 +1,16 @@
-## TODO
+# Share Anything
 
-* Monitoring progress for file uploads
-  - See [this](https://stackoverflow.com/questions/13909900/progress-of-python-requests-post).
+Share any file type with one command.
 
-* Setuptools
+Automatically chooses hosts based on file type:
+
+* Gist for text and code.
+* Imgur for images.
+* Anonfile for others.
+
+## Example:
+
+```
+$ python share example.jpg
+https://i.imgur.com/7XZvKSO.jpg
+```
