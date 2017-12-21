@@ -8,6 +8,8 @@ Automatically chooses hosts based on file type:
 * Imgur for images.
 * Anonfile for others.
 
+**Java library with same functionality:** https://github.com/tallpants/share-anything-java
+
 ## Example:
 
 ```
