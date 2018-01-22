@@ -1,6 +1,8 @@
 from collections import namedtuple
 
-from . import helpers, hosts, extensions
+from share import helpers
+from share import hosts
+from share import extensions
 
 
 def upload_multiple(file_path_list, hostname):
@@ -30,4 +32,4 @@ def upload_multiple(file_path_list, hostname):
                 else:
                     host = hosts.anonfile
 
-    host.upload_multiple(files)
+        host.upload_multiple(files)

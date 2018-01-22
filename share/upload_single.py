@@ -1,12 +1,14 @@
-from . import helpers, hosts, extensions
+from share import helpers
+from share import hosts
+from share import extensions
 
 
 def upload_single(file_path, hostname):
 
     size_mb = helpers.size_mb(file_path)
 
-    if size_mb > 1024:
-        print("File is too large (1GB limit)")
+    if size_mb > 5120:
+        print("File is too large (5GB limit)")
         exit(1)
 
     file_extension = helpers.extension(file_path)

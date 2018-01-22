@@ -26,8 +26,8 @@ def upload_multiple(files):
         for file in files:
             zip.write(file.path)
 
-    if helpers.size_mb(zip_name) >= 1024:
-        print("The zip is too large. (1GB limit)")
+    if helpers.size_mb(zip_name) >= 5120:
+        print("The zip is too large. (5GB limit)")
         remove(zip_name)
         exit(1)
 

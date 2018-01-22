@@ -1,12 +1,13 @@
 from os.path import getsize, splitext
 from math import ceil
-from . import hosts
+from share import hosts
 
 
 def size_mb(file_path):
     try:
         val = ceil(getsize(file_path) / 1000000)
     except OSError:
+        val = None
         print("{0} doesn't exist or is inaccessible".format(file_path))
         exit(1)
 
