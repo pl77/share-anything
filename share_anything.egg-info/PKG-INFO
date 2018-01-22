@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: share-anything
+Version: 0.0.1
+Summary: Share any file type with one command
+Home-page: http://github.com/tallpants/share-anything
+Author: Adithya Reddy
+Author-email: dithyakreddy6@gmail.com
+License: GPLv3
+Description-Content-Type: UNKNOWN
+Description: # Share Anything
+        
+        Share any file type with one command.
+        
+        Automatically chooses hosts based on file type:
+        
+        * Gist for text and code.
+        * Imgur for images.
+        * Anonfile for others.
+        
+        **Java library with same functionality:** https://github.com/tallpants/share-anything-java
+        
+        ## Example:
+        
+        ```
+        $ python share example.jpg
+        https://i.imgur.com/7XZvKSO.jpg
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
